@@ -1,0 +1,78 @@
+.question-group {
+    &.container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .row {
+            padding: 15px;
+        }
+        .col-md-4,
+        .col-lg-6,
+        .col-lg-4 {
+            margin: 0 auto;
+            height: 30rem;
+            background: #fff;
+            border-radius: 10px;
+            -webkit-box-shadow: -2px 7px 22px 5px rgba(0, 0, 0, 0.27);
+            box-shadow: -2px 7px 22px 5px rgba(0, 0, 0, 0.27);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .line {
+                margin-top: -0.5rem;
+                .total {
+                }
+                .complete {
+                    margin-top: -17px;
+                    margin-left: 0;
+                    width: 30px;
+                    background-color: #6accb9;
+                }
+            }
+            .body {
+                overflow: auto;
+                .question {
+                    color: #3f6072;
+                }
+                .bookameeting {
+                    width: 100%;
+                    margin-top: 1rem;
+                    button {
+                        width: 100%;
+                    }
+                }
+                .outcome-text {
+                    font-weight: 400;
+                    font-size: 0.85rem;
+                }
+                .devider {
+                    border-top: unset;
+                    width: 50px;
+                    margin-left: 0;
+                    height: 3px;
+                    background: #eee;
+                    margin-top: 0.5rem;
+                }
+                .options {
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                }
+            }
+            .bottom {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 0.75rem;
+                .btn {
+                    width: 100%;
+                    &.btn-link {
+                        font-size: 0.85rem;
+                        margin-bottom: -0.5rem;
+                        color: #6accb9;
+                    }
+                }
+            }
+        }
+    }
+}
