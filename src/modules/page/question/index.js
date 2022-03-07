@@ -5,9 +5,11 @@ import Header from "modules/components/header";
 import Option from "modules/components/option";
 import { GlobalStateContext } from "modules/layout";
 import React, { useContext, useEffect, useState } from "react";
+import data from './data';
 import "./stylesheet.scss";
 
 const Comp = () => {
+
   const [globalState, dispatch] = useContext(GlobalStateContext);
   const [answerId, setAnswerId] = useState(null);
   const [answerScore, setAnswerScore] = useState(0);
@@ -21,14 +23,14 @@ const Comp = () => {
 
   
   useEffect(()=>{
-    if(globalState.questions){
-      const totalQuestion = globalState.questions.length;
+    if(data.questions){
+      const totalQuestion = data.questions.length;
       const percentCounting = (100*historyIndex)/totalQuestion;
       setPercentCounting(percentCounting);
     }
   },[historyIndex]);
 
-  if (!globalState || isEmpty(globalState.questions)) return null;
+  if (!globalState || isEmpty(data.questions)) return null;
 
   const answerHandler = (question, answer) => {
     // Answer
@@ -86,7 +88,7 @@ const Comp = () => {
     if (totalScore === 0) {
       const pair = sortPairs.find((e) => !e.max_score);
       if (pair) {
-        const outcomeObj = globalState.outcomes.find(
+        const outcomeObj = data.outcomes.find(
           (e) => e.id === pair.outcome
         );
         if (outcomeObj) setOutCome(outcomeObj);
@@ -99,7 +101,7 @@ const Comp = () => {
           totalScore <= _sortPairs[index].max_score ||
           index === _sortPairs.length - 1
         ) {
-          const outcomeObj = globalState.outcomes.find(
+          const outcomeObj = data.outcomes.find(
             (e) => e.id === _sortPairs[index].outcome
           );
           setOutCome(outcomeObj);
@@ -121,7 +123,7 @@ const Comp = () => {
 
     // If user hasn't answer this question yet
     if (_historyIndex >= history.length) {
-      const nextQuestion = globalState.questions.find(
+      const nextQuestion = data.questions.find(
         (e) => e.id === nextQuestionId
       );
       setQuestion(nextQuestion);
@@ -140,7 +142,7 @@ const Comp = () => {
           type: actionType.KEEP_HISTORY,
           history,
         });
-        const nextQuestion = globalState.questions.find(
+        const nextQuestion = data.questions.find(
           (e) => e.id === nextQuestionId
         );
         setQuestion(nextQuestion);
@@ -149,7 +151,7 @@ const Comp = () => {
         // If user answered this question and doesn't change the answer
       } else {
         const historyItem = history[_historyIndex];
-        const nextQuestion = globalState.questions.find(
+        const nextQuestion = data.questions.find(
           (e) => e.id === historyItem.questionId
         );
         if (nextQuestion) {
@@ -185,7 +187,7 @@ const Comp = () => {
         const historyItem = history[_historyIndex];
         setAnswerId(historyItem.answerId);
         setAnswerScore(historyIndex.score);
-        const question = globalState.questions.find(
+        const question = data.questions.find(
           (e) => e.id === historyItem.questionId
         );
         setQuestion(question);
@@ -214,7 +216,7 @@ const Comp = () => {
     });
   };
 
-  const _question = !question ? globalState.questions[0] : question;
+  const _question = !question ? data.questions[0] : question;
 
   return (
     <div className="question-group container">
