@@ -176,7 +176,6 @@ const Comp = () => {
   const backQuestionHandler = () => {
 
     if(isCompleted){
-      onResetForm();
       return;
     }
 
@@ -222,7 +221,7 @@ const Comp = () => {
     <div className="question-group container">
       <div className="row">
         <div className="col-lg-4">
-          <Header onBack={backQuestionHandler} percentCompleted={percentCounting} />
+          <Header disabled={isCompleted || historyIndex === 0} onBack={backQuestionHandler} percentCompleted={percentCounting} />
           <div className="body">
             <div className="question">
               {!outCome
