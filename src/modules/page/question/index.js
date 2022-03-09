@@ -174,11 +174,6 @@ const Comp = () => {
   };
 
   const backQuestionHandler = () => {
-
-    if(isCompleted){
-      return;
-    }
-
     const _historyIndex = historyIndex - 1;
     if (_historyIndex >= 0) {
       const history = globalState.history || [];
