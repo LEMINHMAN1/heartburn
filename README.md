@@ -1,6 +1,7 @@
 # Heartburn Checker
 Tech:
     React (hook) + Redux
+    
     node: v14.18.1
     npm: v6.14.15
 
