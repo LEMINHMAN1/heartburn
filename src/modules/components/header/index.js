@@ -7,7 +7,7 @@ const Comp = ({disabled, onBack, title = "Heartburn Checker", percentCompleted=0
   return (
     <div className="header-group noselect">
       <div className="title">
-        <div onClick={!disabled && onBack} className="back">
+        <div onClick={!disabled ? onBack : undefined} className="back">
           <ArrowLeftIcon fill={disabled ? '#ccc' : '#6accb9'} />
         </div>
         <div className="text">{title}</div>
