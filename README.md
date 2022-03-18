@@ -10,5 +10,6 @@ Step to run:
 2. yarn start
 3. Access the website : localhost:3000
 
-Step to run test:
-1. yarn test
+Testing
+1. Unit test:  yarn test
+2. End to end testing: yarn test:e2e

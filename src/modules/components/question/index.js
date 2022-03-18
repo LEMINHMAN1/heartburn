@@ -120,9 +120,6 @@ const Comp = ({ onSubmit }) => {
     if (next_question) {
       if (!next_question.next_question) {
         setIsCompleted(true);
-        setScoreOutcomPairs(question.next);
-      } else {
-        setIsCompleted(false);
       }
       setNextQuestionId(next_question.next_question);
     }
@@ -185,9 +182,10 @@ const Comp = ({ onSubmit }) => {
   };
 
   const nextQuestionHandler = () => {
-    if (isCompleted) {
+    if (!isEmpty(scoreOutcomePairs) && historyIndex === globalState.history.length - 1) {
       calcScore();
       setPercentCounting(100);
+      setIsCompleted(true);
       return;
     }
 
