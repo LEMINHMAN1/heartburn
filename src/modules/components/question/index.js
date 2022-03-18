@@ -119,7 +119,7 @@ const Comp = ({ onSubmit }) => {
     );
     if (next_question) {
       if (!next_question.next_question) {
-        setIsCompleted(true);
+        setScoreOutcomPairs(question.next);
       }
       setNextQuestionId(next_question.next_question);
     }
